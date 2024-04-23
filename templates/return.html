@@ -1,0 +1,10 @@
+<!-- return.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Return a Book</h2>
+<form method="POST" action="{{ url_for('return') }}">
+  <label for="borrowed_book_id">Borrowed Book ID</label>
+  <input type="text" id="borrowed_book_id" name="borrowed_book_id" required>
+  <button type="submit">Return</button>
+</form>
+{% endblock %}

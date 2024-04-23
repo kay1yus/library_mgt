@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('books') }}">Books</a></li>
+            <li><a href="{{ url_for('borrow') }}">Borrow a Book</a></li>
+            <li><a href="{{ url_for('return') }}">Return a Book</a></li>
+            {% if 'is_admin' in session and session['is_admin'] %}
+            <li><a href="{{ url_for('admin_books') }}">Manage Books</a></li>
+            <li><a href="{{ url_for('admin_users') }}">Manage Users</a></li>
+            {% endif %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>© 2024  CETM73-Library</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<!-- admin_books.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Manage Books</h2>
+<ul>
+  {% for book in books %}
+  <li>{{ book.title }} by {{ book.author }} (ID: {{ book.id }})</li>
+  {% endfor %}
+</ul>
+{% endblock %}

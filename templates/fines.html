@@ -1,0 +1,11 @@
+<!-- fines.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Fines</h2>
+<p>Your total fine amount: £{{ total_fine }}</p>
+<ul>
+  {% for fine in fines %}
+  <li>{{ fine.book_title }}: £{{ fine.amount }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

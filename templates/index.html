@@ -1,0 +1,19 @@
+<!-- index.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to the Library</h1>
+<p>Hello, {% if 'username' in session %}{{ session['username'] }}{% endif %}</p>
+<a href="{{ url_for('books') }}">View Books</a>
+<br>
+<a href="{{ url_for('borrow') }}">Borrow a Book</a>
+<br>
+<a href="{{ url_for('return') }}">Return a Book</a>
+{% if 'is_admin' in session and session['is_admin'] %}
+<br>
+<a href="{{ url_for('admin_books') }}">Manage Books</a>
+<br>
+<a href="{{ url_for('admin_users') }}">Manage Users</a>
+{% endif %}
+<br>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}

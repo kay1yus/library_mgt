@@ -1,0 +1,10 @@
+<!-- borrow.html -->
+{% extends "base.html" %}
+{% block content %}
+<h2>Borrow a Book</h2>
+<form method="POST" action="{{ url_for('borrow') }}">
+  <label for="book_id">Book ID</label>
+  <input type="text" id="book_id" name="book_id" required>
+  <button type="submit">Borrow</button>
+</form>
+{% endblock %}
